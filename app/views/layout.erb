@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- Selected Google fonts: -->
+  <link href='http://fonts.googleapis.com/css?family=Fauna+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
+  
+
   <!-- 
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
@@ -9,8 +15,23 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/application.css">
 
-  <title></title>
+
+  <title>Event Management</title>
 </head>
+
+<header>
+  <nav>
+    <% if logged_in? %>
+      <li><a href="#">Protected Page</a></li>
+      <li><a href="/logout">Sign out</a></li>
+      <li>Welcome, <%= current_user.first_name %></li>
+    <% else %>
+      <li><a href="/signup">Sign Up</a></li>
+      <li><a href="/login">Sign In</a></li>
+    <% end %>
+  </nav>
+</header>
+
 <body>
   <%= yield %>
 </body>

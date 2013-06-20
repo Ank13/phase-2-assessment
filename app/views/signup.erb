@@ -1,0 +1,29 @@
+
+
+<div class="container">
+
+  <div id="signup" class="info_box lob_heading form">
+    <h1>Sign Up!</h1>
+      <form action="/signup" method="post">
+
+        <input type="text" id="first_name" name="user[first_name]" placeholder="First Name"><br>
+        <input type="text" id="last_name" name="user[last_name]" placeholder="Last Name"><br>
+        <input type="date" id="birthdate" name="user[birthdate]" placeholder="Birthdate"><br>
+
+        <input type="text" id="email" name="user[email]" placeholder="Email"><br>
+
+     <!--    <input type="hidden" id="passworddigest" name="user[password_digest]" value="temp"><br> -->
+
+        <input type="password" id="password" name="user[password]" placeholder="Password"><br>
+    <!--     <input type="password" id="password_confirmation" name="user[password_confirmation]" placeholder="Confirm password"><br> -->
+        
+        <input type="submit" value="Sign up" class="regular_button">
+      </form>
+  </div>
+
+
+<% if @errors %>
+  <%= erb :_errors, locals: {errors: @errors} %>
+<% end %>
+
+</div>
