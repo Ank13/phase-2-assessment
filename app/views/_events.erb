@@ -1,3 +1,10 @@
 <li> <%= event.name %>, <%= event.location %>, <%= event.starts_at  %> </li>
 
+<form action="/delete_event" method="post">
+  <input type="hidden" name="event_id" value="<%=event.id%>" >
+  <input type="submit" value="Delete" class="small_button">
+</form>
 
+<form action="/edit/<%=event.id%>" method="get">
+  <input type="submit" value="Edit" class="small_button">
+</form>

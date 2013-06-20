@@ -54,6 +54,16 @@ header li {
   margin-top: 30px;
 }
 
+.small_button {
+  border-radius: 8px;
+  color: white;
+  background-color: black;
+  width: 60px;
+  margin-top: 5px;
+}
+
+
+
 h1, h2, h3, h4 {
   font-family: 'Fugaz One', cursive;
 }

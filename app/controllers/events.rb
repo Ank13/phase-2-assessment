@@ -14,3 +14,21 @@ post '/events' do
 
   redirect '/events'
 end
+
+
+post '/delete_event' do 
+  event = Event.find_by_id(params[:event_id])
+  event.destroy 
+  redirect '/events'
+end
+
+get '/edit/:event_id' do 
+  @event = Event.find_by_id(params[:event_id])
+  erb :edit
+end
+
+post '/edit_event' do 
+  @event = Event.find_by_id(params[:event_id])
+  Event.update(@event.id, params[:event])
+  redirect '/events'
+end
