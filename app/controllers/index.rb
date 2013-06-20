@@ -18,11 +18,10 @@ get '/logout' do
 end
 
 post '/signup' do
-  params.inspect
   @user = User.new(params[:user])
   if @user.save
     session[:user] = @user.id
-    redirect '/'
+    redirect '/events'
   else
     @errors = @user.errors
     puts @user.errors.keys
@@ -34,7 +33,7 @@ post '/login' do
   if User.authenticate(params[:user][:email], params[:user][:password])
     @user = User.find_by_email(params[:user][:email])
     session[:user] = @user.id
-    redirect '/'
+    redirect '/events'
   else
     @errors = {error: "Invalid email or password."}
     erb :login

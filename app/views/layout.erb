@@ -22,7 +22,7 @@
 <header>
   <nav>
     <% if logged_in? %>
-      <li><a href="#">Protected Page</a></li>
+      <li><a href="/events">Events page</a></li>
       <li><a href="/logout">Sign out</a></li>
       <li>Welcome, <%= current_user.first_name %></li>
     <% else %>

@@ -1,0 +1,33 @@
+
+
+<div class="container">
+  
+  <h2>Create New Event</h2>
+  <form action="/events" method="post">
+    <input type="text" id="name" name="event[name]" placeholder="Event Name"><br>
+    <input type="text" id="location" name="event[location]" placeholder="Event Location"><br>
+
+    <label for="starts_at">Starts at:</label>
+    <input type="date" id="starts_at" name="event[starts_at]" <br><br>
+    
+    <label for="ends_at">Ends at:</label>
+    <input type="date" id="ends_at" name="event[ends_at]" ><br>
+
+    <input type="submit" value="Create Event" class="regular_button">
+  </form>
+
+
+</div>
+
+<div class="container">
+  
+
+  <h2>Events you created (if any):</h2>
+  
+  <ul>
+    <% @events.each do |event| %>
+      <%= erb :_events, :layout => false, locals: {event: event} %>
+    <% end %>
+  </ul>
+
+</div>
