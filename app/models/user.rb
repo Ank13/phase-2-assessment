@@ -1,4 +1,12 @@
 class User < ActiveRecord::Base
+  # events the user attends:
+  has_many :event_attendances
+  has_many :attended_events, :through => :event_attendances, :source => :event
+
+  # events the user creates:
+  has_many :created_events, :class_name => "Event"
+
+
 
   attr_accessor :password
 
