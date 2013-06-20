@@ -6,9 +6,9 @@ $(document).ready(function() {
     var data = $('#create_event').serialize();
     $.post(url, data, function(response){
       $("#event_list").append(response);
+      // $("input").val(" ");
     });
   });
-
 
 });
 
