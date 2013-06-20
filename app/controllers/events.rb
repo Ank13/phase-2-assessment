@@ -6,13 +6,17 @@ end
 
 post '/events' do 
   
-  Event.create :user_id    => current_user.id, 
+  event = Event.create :user_id    => current_user.id, 
                :name       => params[:event][:name],
                :location   => params[:event][:location],
                :starts_at => params[:event][:starts_at],
                :ends_at   => params[:event][:ends_at] 
 
-  redirect '/events'
+  if request.xhr?
+    erb :_events, :layout => false, locals: {event: event}
+  else 
+    redirect '/events'
+  end
 end
 
 

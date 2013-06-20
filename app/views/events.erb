@@ -3,7 +3,7 @@
 <div class="container">
   
   <h2>Create New Event</h2>
-  <form action="/events" method="post">
+  <form id="create_event" action="/events" method="post">
     <input type="text" id="name" name="event[name]" placeholder="Event Name"><br>
     <input type="text" id="location" name="event[location]" placeholder="Event Location"><br>
 
@@ -24,7 +24,7 @@
 
   <h2>Events you created (if any):</h2>
   
-  <ul>
+  <ul id="event_list">
     <% @events.each do |event| %>
       <%= erb :_events, :layout => false, locals: {event: event} %>
     <% end %>
